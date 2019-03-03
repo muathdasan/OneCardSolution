@@ -1,0 +1,135 @@
+﻿@model SmartMvc.Core.Domain.FoodMenu
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="col-md-12">
+    <div class="form-manage">
+        @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "CreateForm" }))
+        {
+            @Html.AntiForgeryToken()
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                    <span class="fa fa-edit"></span> @String.Format("{0}", Resources.Site.Edit)
+                    :  @Html.DisplayFor(model => model.FMenuTitle)
+                </h3>
+            </div>
+            <div class="panel-body">
+                <div class="">
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    @Html.Partial("~/Views/Shared/_MessageResult.cshtml", ViewData)
+                    @Html.HiddenFor(model => model.FMenuId)
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.FMenuCode, htmlAttributes: new { @class = "control-label" })
+
+                        @Html.EditorFor(model => model.FMenuCode, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.FMenuCode, "", new { @class = "text-danger" })
+
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.FMenuTitle, htmlAttributes: new { @class = "control-label" })
+
+                        @Html.EditorFor(model => model.FMenuTitle, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.FMenuTitle, "", new { @class = "text-danger" })
+
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.FMenuDescription, htmlAttributes: new { @class = "control-label" })
+
+                        @Html.EditorFor(model => model.FMenuDescription, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.FMenuDescription, "", new { @class = "text-danger" })
+
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.FMenuPrice, htmlAttributes: new { @class = "control-label" })
+
+                        @Html.EditorFor(model => model.FMenuPrice, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.FMenuPrice, "", new { @class = "text-danger" })
+
+                    </div>
+
+                    @*<div class="form-group">
+            @Html.LabelFor(model => model.FMenuAddDate, htmlAttributes: new { @class = "control-label" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.FMenuAddDate, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.FMenuAddDate, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FMenuModifyDate, htmlAttributes: new { @class = "control-label" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.FMenuModifyDate, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.FMenuModifyDate, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FMenuUserId, htmlAttributes: new { @class = "control-label" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.FMenuUserId, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.FMenuUserId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FMenuModifyUserId, htmlAttributes: new { @class = "control-label" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.FMenuModifyUserId, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.FMenuModifyUserId, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.FMenuPriority, htmlAttributes: new { @class = "control-label" })
+
+                        @Html.EditorFor(model => model.FMenuPriority, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.FMenuPriority, "", new { @class = "text-danger" })
+
+                    </div>
+
+                    @*<div class="form-group">
+            @Html.LabelFor(model => model.FMenuIsDeleted, htmlAttributes: new { @class = "control-label" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.FMenuIsDeleted)
+                    @Html.ValidationMessageFor(model => model.FMenuIsDeleted, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FMenuIsPublished, htmlAttributes: new { @class = "control-label" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.FMenuIsPublished)
+                    @Html.ValidationMessageFor(model => model.FMenuIsPublished, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>*@
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value='@Resources.Site.Save' class="btn btn-info" />
+                            @Html.ActionLink(Resources.Site.BackToList, "Index", null, new { @class = "btn btn-default" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+            }
+        </div>
+        </div>
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,71 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2019
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tiers", "Tiers", "{92AD6EC8-0A0E-4429-91E0-CBC4BF40F7E3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartMvc.Core", "Tiers\SmartMvc.Core\SmartMvc.Core.csproj", "{34856980-F359-4076-8FA5-13523E2A34D7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartMvc.Data", "Tiers\SmartMvc.Data\SmartMvc.Data.csproj", "{64328325-3457-4B1D-A89F-98B75AC6BABE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartMvc.Services", "Tiers\SmartMvc.Services\SmartMvc.Services.csproj", "{8179E6EF-9049-484B-8548-A50530C10803}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OneCard.MVC", "OneCard.MVC\OneCard.MVC.csproj", "{0109206E-343B-42EC-9CDD-CECB9EB8CFCE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{34856980-F359-4076-8FA5-13523E2A34D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34856980-F359-4076-8FA5-13523E2A34D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34856980-F359-4076-8FA5-13523E2A34D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34856980-F359-4076-8FA5-13523E2A34D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{64328325-3457-4B1D-A89F-98B75AC6BABE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64328325-3457-4B1D-A89F-98B75AC6BABE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64328325-3457-4B1D-A89F-98B75AC6BABE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64328325-3457-4B1D-A89F-98B75AC6BABE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8179E6EF-9049-484B-8548-A50530C10803}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8179E6EF-9049-484B-8548-A50530C10803}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8179E6EF-9049-484B-8548-A50530C10803}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8179E6EF-9049-484B-8548-A50530C10803}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0109206E-343B-42EC-9CDD-CECB9EB8CFCE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0109206E-343B-42EC-9CDD-CECB9EB8CFCE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0109206E-343B-42EC-9CDD-CECB9EB8CFCE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0109206E-343B-42EC-9CDD-CECB9EB8CFCE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{34856980-F359-4076-8FA5-13523E2A34D7} = {92AD6EC8-0A0E-4429-91E0-CBC4BF40F7E3}
+		{64328325-3457-4B1D-A89F-98B75AC6BABE} = {92AD6EC8-0A0E-4429-91E0-CBC4BF40F7E3}
+		{8179E6EF-9049-484B-8548-A50530C10803} = {92AD6EC8-0A0E-4429-91E0-CBC4BF40F7E3}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FFB0A1A7-8302-4082-BC05-1BC084EC8B91}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 5
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://ahmadhayek.visualstudio.com/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = OneCard.MVC\\OneCard.MVC.csproj
+		SccProjectName1 = OneCard.MVC
+		SccLocalPath1 = OneCard.MVC
+		SccProjectUniqueName2 = Tiers\\SmartMvc.Core\\SmartMvc.Core.csproj
+		SccProjectTopLevelParentUniqueName2 = OneCard.sln
+		SccProjectName2 = Tiers/SmartMvc.Core
+		SccLocalPath2 = Tiers\\SmartMvc.Core
+		SccProjectUniqueName3 = Tiers\\SmartMvc.Data\\SmartMvc.Data.csproj
+		SccProjectTopLevelParentUniqueName3 = OneCard.sln
+		SccProjectName3 = Tiers/SmartMvc.Data
+		SccLocalPath3 = Tiers\\SmartMvc.Data
+		SccProjectUniqueName4 = Tiers\\SmartMvc.Services\\SmartMvc.Services.csproj
+		SccProjectTopLevelParentUniqueName4 = OneCard.sln
+		SccProjectName4 = Tiers/SmartMvc.Services
+		SccLocalPath4 = Tiers\\SmartMvc.Services
+	EndGlobalSection
+EndGlobal

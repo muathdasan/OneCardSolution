@@ -1,0 +1,128 @@
+﻿@using OneCard.MVC.Helpers
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @if (ViewBag.Titel != null)
+    {
+        <title>@Resources.Site.AppName - @ViewBag.Titel</title>
+    }
+    else
+    {
+        <title>@Resources.Site.AppName</title>
+    }
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+    @if (CultureHelper.IsRtl)
+    {
+        @Styles.Render("~/Content/InternalStylesAr")
+    }
+
+    @RenderSection("styles", required: false)
+
+</head>
+<body>
+
+    @*@Html.Partial("_NavBar")*@
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink(Resources.Site.AppName, "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink(Resources.Site.HomePage, "Index", "Home")</li>
+                    <li>@Html.ActionLink(Resources.Site.CategoryTypes, "Index", "CategoryTypes")</li>
+                    <li>@Html.ActionLink(Resources.Site.Library, "Index", "Books")</li>
+                    <li>@Html.ActionLink(Resources.Site.Terminals, "Index", "Terminals")</li>
+                    <li>@Html.ActionLink(Resources.Site.FoodMenu, "Index", "FoodMenus")</li>
+                    <li>@Html.ActionLink(Resources.Site.Templates, "Index", "Templates")</li>
+                    <li>@Html.ActionLink(Resources.Site.Owners, "Index", "Owners")</li>
+                    <li class="lang-btn">
+                        @if (CultureHelper.IsRtl)
+                        {
+                            <a href="@Url.Action("ChangeSessionCulture", "Home", new { cultureName = Resources.Site.LangaugeCode })" class="Item" role="button" aria-haspopup="true" aria-expanded="false">
+                                <span class="lang-icon">
+                                    <img src="~/Content/images/gb.png" />
+                                </span>
+                            </a>
+                        }
+                        else
+                        {
+                            <a href="@Url.Action("ChangeSessionCulture", "Home", new { cultureName = Resources.Site.LangaugeCode })" class="Item" role="button" aria-haspopup="true" aria-expanded="false">
+                                <span class="lang-icon">
+                                    <img src="~/Content/images/sa.png" />
+                                </span>
+                            </a>
+                        }
+                    </li>
+                    @*<li>@Html.ActionLink("Contact", "Contact", "Home")</li>*@
+                </ul>
+                @*@Html.Partial("_LoginPartial")*@
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        <div class="page-content-wrap">
+            @RenderBody()
+
+        </div>
+        @*<hr />*@
+        <footer>
+            <p>&copy; @DateTime.Now.Year - @Resources.Site.AppName</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/lib")
+    
+    @if (CultureHelper.IsRtl)
+    {
+        // @Scripts.Render("~/bundles/InternalScriptsAr")
+    }
+    <div class="modal" id="popup_container" tabindex="-1" role="dialog" aria-labelledby="defModalHead" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">@Resources.Site.Close</span></button>
+                    <h4 class="modal-title" id="defModalHead"></h4>
+                </div>
+                <div class="modal-body" style="text-align:center;">
+                    <img src="/Content/images/loader.gif" alt="Loading ..." style="margin-left:auto; margin-right:auto; margin-top:100px; margin-bottom:100px; width:75px;" />
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">@Resources.Site.Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal" id="confirm_container" tabindex="-1" role="dialog" aria-labelledby="defModalHead" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">@Resources.Site.Close</span></button>
+                    <h4 class="modal-title" id="defModalHead"></h4>
+                </div>
+                <div class="modal-body" style="text-align:center;">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">@Resources.Site.Close</button>
+                    <button type="button" id="btnConfirmApprove" class="btn btn-primary" data-dismiss="modal">@Resources.Site.Confirm</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

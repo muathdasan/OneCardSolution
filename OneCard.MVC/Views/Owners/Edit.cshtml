@@ -1,0 +1,544 @@
+﻿@model SmartMvc.Core.Domain.Owner
+@using SmartMvc.Core.Enums;
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-md-12">
+    <div class="form-manage create-owner">
+        @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "CreateForm", enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        <span class="fa fa-edit"></span> @String.Format("{0}", Resources.Site.Edit)
+                        :  @Html.DisplayFor(model => model.OwnerFirstName) @Html.DisplayFor(model => model.OwnerFamilyName)
+                    </h3>
+                </div>
+                <div class="panel-body">
+                    <div class="">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        @Html.Partial("~/Views/Shared/_MessageResult.cshtml", ViewData)
+                        @Html.HiddenFor(model => model.OwnerId)
+
+                        <div class="form-group col-md-4">
+                            <div class="col-md-4">
+                                @Html.LabelFor(model => model.OwnerFirstName, htmlAttributes: new { @class = "control-label " })
+                                @Html.Label(" * ", htmlAttributes: new { @class = "red-star" })
+
+                            </div>
+                            <div class="col-md-8">
+                                @Html.EditorFor(model => model.OwnerFirstName, new { htmlAttributes = new { @class = "form-control" } })
+
+                                @Html.ValidationMessageFor(model => model.OwnerFirstName, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <div class="col-md-4">
+                                @Html.LabelFor(model => model.OwnerSecondName, htmlAttributes: new { @class = "control-label " })
+
+                            </div>
+                            <div class="col-md-8">
+                                @Html.EditorFor(model => model.OwnerSecondName, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.OwnerSecondName, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <div class="col-md-4">
+                                @Html.LabelFor(model => model.OwnerFamilyName, htmlAttributes: new { @class = "control-label " })
+                                @Html.Label(" * ", htmlAttributes: new { @class = "red-star" })
+
+                            </div>
+                            <div class="col-md-8">
+                                @Html.EditorFor(model => model.OwnerFamilyName, new { htmlAttributes = new { @class = "form-control" } })
+
+                                @Html.ValidationMessageFor(model => model.OwnerFamilyName, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <div class="col-md-4">
+                                @Html.LabelFor(model => model.OwnerEmail, htmlAttributes: new { @class = "control-label " })
+
+                            </div>
+                            <div class="col-md-8">
+                                @Html.EditorFor(model => model.OwnerEmail, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.OwnerEmail, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <div class="col-md-4">
+                                @Html.LabelFor(model => model.OwnerMobile, htmlAttributes: new { @class = "control-label " })
+
+                            </div>
+                            <div class="col-md-8">
+                                @Html.EditorFor(model => model.OwnerMobile, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.OwnerMobile, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <div class="col-md-4">
+                                @Html.LabelFor(model => model.OwnerNationalNo, htmlAttributes: new { @class = "control-label " })
+                                @Html.Label(" * ", htmlAttributes: new { @class = "red-star" })
+                            </div>
+                            <div class="col-md-8">
+                                @Html.EditorFor(model => model.OwnerNationalNo, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.OwnerNationalNo, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <div class="col-md-4">
+                                @Html.LabelFor(model => model.OwnerGender, htmlAttributes: new { @class = "control-label " })
+                                @Html.Label(" * ", htmlAttributes: new { @class = "red-star" })
+                            </div>
+                            <div class="col-md-8">
+                                @*@Html.EditorFor(model => model.OwnerGender, new { htmlAttributes = new { @class = "form-control" } })*@
+                                @Html.DropDownList("OwnerGender", EnumHelper.GetSelectList(typeof(Gender)), Resources.Site.PleaseSelect, htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.OwnerGender, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <div class="col-md-4">
+                                @Html.LabelFor(model => model.OwnerNationality, htmlAttributes: new { @class = "control-label " })
+                                @Html.Label(" * ", htmlAttributes: new { @class = "red-star" })
+                            </div>
+                            <div class="col-md-8">
+                                @*@Html.EditorFor(model => model.OwnerNationality, new { htmlAttributes = new { @class = "form-control" } })*@
+                                @Html.DropDownList("OwnerNationality", EnumHelper.GetSelectList(typeof(Nationality)), Resources.Site.PleaseSelect, htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.OwnerNationality, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <div class="col-md-4">
+                                @Html.LabelFor(model => model.OwnerCollage, htmlAttributes: new { @class = "control-label " })
+
+                            </div>
+                            <div class="col-md-8">
+                                @*@Html.EditorFor(model => model.OwnerCollage, new { htmlAttributes = new { @class = "form-control" } })*@
+                                @Html.DropDownList("OwnerCollage", EnumHelper.GetSelectList(typeof(Collage)), Resources.Site.PleaseSelect, htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.OwnerCollage, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <div class="col-md-4">
+                                @Html.LabelFor(model => model.OwnerPlaceOfBirth, htmlAttributes: new { @class = "control-label " })
+                            </div>
+                            <div class="col-md-8">
+                                @*@Html.EditorFor(model => model.OwnerPlaceOfBirth, new { htmlAttributes = new { @class = "form-control" } })*@
+                                @Html.DropDownList("OwnerPlaceOfBirth", EnumHelper.GetSelectList(typeof(PlaceOfBirth)), Resources.Site.PleaseSelect, htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.OwnerPlaceOfBirth, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <div class="col-md-4">
+                                @Html.LabelFor(model => model.OwnerDateOfBirth, htmlAttributes: new { @class = "control-label" })
+                            </div>
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.OwnerDateOfBirth, "{0:dd/MM/yyyy}", new { @class = "form-control datepicker" })
+                                @*@Html.EditorFor(model => model.OwnerDateOfBirth, new { htmlAttributes = new { @class = "form-control datepicker" } })*@
+                                @Html.ValidationMessageFor(model => model.OwnerDateOfBirth, "", new { @class = "text-danger" })
+
+                            </div>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <div class="col-md-4">
+                                @Html.LabelFor(model => model.OwnerBloodType, htmlAttributes: new { @class = "control-label " })
+                            </div>
+                            <div class="col-md-8">
+                                @*@Html.EditorFor(model => model.OwnerBloodType, new { htmlAttributes = new { @class = "form-control" } })*@
+                                @Html.DropDownList("OwnerBloodType", EnumHelper.GetSelectList(typeof(BloodType)), Resources.Site.PleaseSelect, htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.OwnerBloodType, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <div class="col-md-4">
+                                @Html.LabelFor(model => model.OwnerPassportNo, htmlAttributes: new { @class = "control-label " })
+
+                            </div>
+                            <div class="col-md-8">
+                                @Html.EditorFor(model => model.OwnerPassportNo, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.OwnerPassportNo, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <div class="col-md-4">
+                                @Html.LabelFor(model => model.OwnerPassportPlace, htmlAttributes: new { @class = "control-label " })
+
+                            </div>
+                            <div class="col-md-8">
+                                @Html.EditorFor(model => model.OwnerPassportPlace, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.OwnerPassportPlace, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <div class="col-md-4">
+                                @Html.LabelFor(model => model.OwnerPassportEndDate, htmlAttributes: new { @class = "control-label " })
+
+                            </div>
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.OwnerPassportEndDate, "{0:dd/MM/yyyy}", new { @class = "form-control datepicker" })
+                                @*@Html.EditorFor(model => model.OwnerPassportEndDate, new { htmlAttributes = new { @class = "form-control datepicker" } })*@
+                                @Html.ValidationMessageFor(model => model.OwnerPassportEndDate, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <div class="col-md-4">
+                                @Html.LabelFor(model => model.OwnerStatus, htmlAttributes: new { @class = "control-label " })
+                                @Html.Label(" * ", htmlAttributes: new { @class = "red-star" })
+                            </div>
+                            <div class="col-md-8">
+                                <div class="checkbox">
+                                    @Html.EditorFor(model => model.OwnerStatus)
+                                    @Html.ValidationMessageFor(model => model.OwnerStatus, "", new { @class = "text-danger" })
+                                    @Html.Label(Resources.Site.Active)
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <div class="col-md-4">
+                                @Html.LabelFor(model => model.CategoryTypeId, Resources.Site.Category, htmlAttributes: new { @class = "control-label " })
+                                @Html.Label(" * ", htmlAttributes: new { @class = "red-star" })
+                            </div>
+                            <div class="col-md-8">
+                                @Html.DropDownList("CategoryTypeId", null, htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.CategoryTypeId, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <div class="col-md-4">
+                                @Html.LabelFor(model => model.OwnerTemplateId, Resources.Site.Template, htmlAttributes: new { @class = "control-label " })
+                                @Html.Label(" * ", htmlAttributes: new { @class = "red-star" })
+                            </div>
+                            <div class="col-md-8">
+                                @Html.DropDownList("OwnerTemplateId", null, htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.OwnerTemplateId, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-12">
+                            @Html.LabelFor(model => model.OwnerDescription, htmlAttributes: new { @class = "control-label col-md-1" })
+                            <div class="col-md-11">
+                                @Html.EditorFor(model => model.OwnerDescription, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.OwnerDescription, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-12">
+                            @Html.LabelFor(model => model.OwnerImagePath, htmlAttributes: new { @class = "control-label col-md-1" })
+                            <div class="col-md-3">
+                                @if (Model.OwnerImagePath != null)
+                                {
+                                    <img src="~/images/@Html.DisplayFor(model => model.OwnerImagePath)" width="200" />
+                                    @Html.HiddenFor(model => model.OwnerImagePath)
+                                }
+                            </div>
+                            <div class="col-md-2">
+                                @Html.Label(@Resources.Site.UploadNewImage, htmlAttributes: new { @class = "control-label " })
+
+                            </div>
+                            <div class="col-md-4">
+                                <input type="file" name="OwnerImagePath" id="OwnerImagePath" class="form-control" />
+                                @Html.ValidationMessageFor(model => model.OwnerImagePath, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="col-md-2 ">
+                                <button class="btn btn-info" onclick="showCamera();return false;">@Resources.Site.ShowCamera</button>
+                            </div>
+                        </div>
+                        <script>
+                            function showCamera() {
+                                var x = document.getElementById("capture");
+                                if (x.style.display === "none") {
+                                    x.style.display = "block";
+                                } else {
+                                    x.style.display = "none";
+                                }
+                            }
+                        </script>
+                        <div id="capture" class="form-group col-md-12 div-capture" style="display:none;">
+                            <div id="my_camera" class="col-md-5"></div>
+                            <script type="text/javascript" src="~/Scripts/Webcam/webcam.min.js"></script>
+                            <script language="JavaScript">
+                                Webcam.set({
+                                    width: 240,
+                                    height: 180,
+                                    image_format: 'png',
+                                    jpeg_quality: 90
+                                });
+                                Webcam.attach('#my_camera');
+                            </script>
+                            <div class="col-md-2 btn-capture">
+                                <input type=button value='@Resources.Site.TakeSnapshot' onClick="take_snapshot()" class="btn btn-success">
+                                <input type="hidden" id="imageData" name="imageData" value="" />
+                                <script language="JavaScript">
+                                    function take_snapshot() {
+                                        // take snapshot and get image data
+                                        Webcam.snap(function (data_uri) {
+                                            // display results in page
+                                            document.getElementById('results').innerHTML =
+                                                //     '<h2>Here is your image:</h2>' +
+                                                '<img id="base64image" src="' + data_uri + '"/>';
+                                            document.getElementById('imageData').value = data_uri;
+                                            //document.querySelector('#OwnerImagePath').required = false;
+
+                                        });
+                                    }
+                                </script>
+                            </div>
+                            <div id="results" class=" col-md-3">
+                                @*Your captured image will appear here...*@
+                            </div>
+                        </div>
+                        <div class="form-group col-md-12">
+                            @Html.LabelFor(model => model.OwnerAttachFile1, htmlAttributes: new { @class = "control-label col-md-1" })
+                            <div class="col-md-3">
+                                @if (Model.OwnerAttachFile1 != null)
+                                {
+                                    <a href="~/Files/@Html.DisplayFor(model => model.OwnerAttachFile1)" download>
+                                        @Resources.Site.DownloadFile
+                                        @Html.HiddenFor(model => model.OwnerAttachFile1)
+                                    </a>
+                                }
+                                else
+                                { @Resources.Site.Unknown}
+                            </div>
+                            <div class="col-md-2">
+                                @Html.Label(@Resources.Site.UploadNewAttachFile1, htmlAttributes: new { @class = "control-label " })
+
+                            </div>
+                            <div class="col-md-6">
+                                <input type="file" name="OwnerAttachFile1" id="OwnerAttachFile1" class="form-control" />
+                                @Html.ValidationMessageFor(model => model.OwnerAttachFile1, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group col-md-12">
+                            @Html.LabelFor(model => model.OwnerAttachFile2, htmlAttributes: new { @class = "control-label col-md-1" })
+                            <div class="col-md-3">
+                                @if (Model.OwnerAttachFile2 != null)
+                                {
+                                    <a href="~/Files/@Html.DisplayFor(model => model.OwnerAttachFile2)" download>
+                                        @Resources.Site.DownloadFile
+                                        @Html.HiddenFor(model => model.OwnerAttachFile2)
+                                    </a>
+                                }
+                                else
+                                { @Resources.Site.Unknown}
+                            </div>
+                            <div class="col-md-2">
+                                @Html.Label(@Resources.Site.UploadNewAttachFile2, htmlAttributes: new { @class = "control-label " })
+                            </div>
+                            <div class="col-md-6">
+                                <input type="file" name="OwnerAttachFile2" id="OwnerAttachFile2" class="form-control" />
+                                @Html.ValidationMessageFor(model => model.OwnerAttachFile2, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group col-md-12">
+                            @Html.LabelFor(model => model.OwnerAttachFile3, htmlAttributes: new { @class = "control-label  col-md-1" })
+                            <div class="col-md-3">
+                                @if (Model.OwnerAttachFile3 != null)
+                                {
+                                    <a href="~/Files/@Html.DisplayFor(model => model.OwnerAttachFile3)" download>
+                                        @Resources.Site.DownloadFile
+                                        @Html.HiddenFor(model => model.OwnerAttachFile3)
+                                    </a>
+                                }
+                                else
+                                { @Resources.Site.Unknown}
+                            </div>
+                            <div class="col-md-2">
+                                @Html.Label(@Resources.Site.UploadNewAttachFile3, htmlAttributes: new { @class = "control-label " })
+                            </div>
+                            <div class="col-md-6">
+                                <input type="file" name="OwnerAttachFile3" id="OwnerAttachFile3" class="form-control" />
+                                @Html.ValidationMessageFor(model => model.OwnerAttachFile3, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        @*<div class="form-group col-md-4">
+            <div class="col-md-4">
+                @Html.LabelFor(model => model.OwnerAddress, htmlAttributes: new { @class = "control-label " })
+
+            </div>
+            <div class="col-md-8">
+                @Html.EditorFor(model => model.OwnerAddress, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.OwnerAddress, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+                        @*<div class="form-group col-md-4">
+            <div class="col-md-4">
+                @Html.LabelFor(model => model.OwnerCode, htmlAttributes: new { @class = "control-label " })
+            </div>
+            <div class="col-md-8">
+                @Html.EditorFor(model => model.OwnerCode, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.OwnerCode, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+
+                        @*<div class="form-group col-md-4">
+            @Html.LabelFor(model => model.OwnerFullNameEn, htmlAttributes: new { @class = "control-label " })
+            <div class="col-md-8">
+                @Html.EditorFor(model => model.OwnerFullNameEn, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.OwnerFullNameEn, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+                        @*<div class="form-group col-md-4">
+            @Html.LabelFor(model => model.OwnerPhone, htmlAttributes: new { @class = "control-label " })
+            <div class="col-md-8">
+                @Html.EditorFor(model => model.OwnerPhone, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.OwnerPhone, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+                        @*<div class="form-group col-md-4">
+
+            @Html.LabelFor(model => model.OwnerDocumentNo, htmlAttributes: new { @class = "control-label " })
+            <div class="col-md-8">
+                @Html.EditorFor(model => model.OwnerDocumentNo, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.OwnerDocumentNo, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+
+                        @*<div class="form-group col-md-4">
+            @Html.LabelFor(model => model.OwnerDocumentDate, htmlAttributes: new { @class = "control-label " })
+            <div class="col-md-8">
+                @Html.EditorFor(model => model.OwnerDocumentDate, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.OwnerDocumentDate, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.OwnerHafizaNo, htmlAttributes: new { @class = "control-label " })
+            <div class="col-md-8">
+                @Html.EditorFor(model => model.OwnerHafizaNo, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.OwnerHafizaNo, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.OwnerHafizaDate, htmlAttributes: new { @class = "control-label " })
+            <div class="col-md-8">
+                @Html.EditorFor(model => model.OwnerHafizaDate, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.OwnerHafizaDate, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.OwnerIqamaNo, htmlAttributes: new { @class = "control-label " })
+            <div class="col-md-8">
+                @Html.EditorFor(model => model.OwnerIqamaNo, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.OwnerIqamaNo, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.OwnerIqamaPlace, htmlAttributes: new { @class = "control-label " })
+            <div class="col-md-8">
+                @Html.EditorFor(model => model.OwnerIqamaPlace, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.OwnerIqamaPlace, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.OwnerIqamaStartDate, htmlAttributes: new { @class = "control-label " })
+            <div class="col-md-8">
+                @Html.EditorFor(model => model.OwnerIqamaStartDate, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.OwnerIqamaStartDate, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.OwnerIqamaEndDate, htmlAttributes: new { @class = "control-label " })
+            <div class="col-md-8">
+                @Html.EditorFor(model => model.OwnerIqamaEndDate, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.OwnerIqamaEndDate, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+
+
+                        @*<div class="form-group">
+            @Html.LabelFor(model => model.OwnerImageContentType, htmlAttributes: new { @class = "control-label " })
+            <div class="col-md-8">
+                @Html.EditorFor(model => model.OwnerImageContentType, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.OwnerImageContentType, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.OwnerImageExtension, htmlAttributes: new { @class = "control-label " })
+            <div class="col-md-8">
+                @Html.EditorFor(model => model.OwnerImageExtension, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.OwnerImageExtension, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.OwnerImageLength, htmlAttributes: new { @class = "control-label " })
+            <div class="col-md-8">
+                @Html.EditorFor(model => model.OwnerImageLength, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.OwnerImageLength, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+
+
+
+                        @*<div class="form-group">
+            @Html.LabelFor(model => model.OwnerAddDate, htmlAttributes: new { @class = "control-label " })
+            <div class="col-md-8">
+                @Html.EditorFor(model => model.OwnerAddDate, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.OwnerAddDate, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+
+                        @*<div class="form-group">
+            @Html.LabelFor(model => model.OwnerModifyDate, htmlAttributes: new { @class = "control-label " })
+            <div class="col-md-8">
+                @Html.EditorFor(model => model.OwnerModifyDate, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.OwnerModifyDate, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.OwnerUserId, htmlAttributes: new { @class = "control-label " })
+            <div class="col-md-8">
+                @Html.EditorFor(model => model.OwnerUserId, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.OwnerUserId, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+
+                        @*<div class="form-group">
+            @Html.LabelFor(model => model.OwnerModifyUserId, htmlAttributes: new { @class = "control-label " })
+            <div class="col-md-8">
+                @Html.EditorFor(model => model.OwnerModifyUserId, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.OwnerModifyUserId, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+
+                        @*<div class="form-group">
+            @Html.LabelFor(model => model.OwnerIsDeleted, htmlAttributes: new { @class = "control-label " })
+            <div class="col-md-8">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.OwnerIsDeleted)
+                    @Html.ValidationMessageFor(model => model.OwnerIsDeleted, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>*@
+
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-8">
+                                <input type="submit" value='@Resources.Site.Save' class="btn btn-info" />
+                                @Html.ActionLink(Resources.Site.BackToList, "Index", null, new { @class = "btn btn-default" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+}

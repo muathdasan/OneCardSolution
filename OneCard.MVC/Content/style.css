@@ -1,0 +1,101 @@
+﻿
+
+.lang-icon img {
+    width: 30px;
+}
+.page-content-wrap {
+    min-height: 550px;
+}
+.panel-heading h2 {
+    background: #f5f2f2;
+    padding: 10px;
+}
+footer {
+    font-size: 18px;
+}
+.create-btn {
+    float: right;
+    margin-bottom: 20px;
+}
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+.table .thead-dark th {
+    color: #fff;
+    background-color: #212529;
+    border-color: #32383e;
+}
+.panel-heading{margin-bottom:40px;}
+.dataTables_length, dataTables_filter {
+    margin-bottom: 30px;
+}
+.dl-horizontal dt {
+    margin-bottom: 15px;
+    text-align: left;
+    /*border: 1px solid #eee;
+    padding: 5px 10px 5px 10px;*/
+}
+.dl-horizontal dd {
+    text-align: left;
+    margin-left: 200px;
+}
+.modal-body {
+    padding: 10px 30px 10px 30px;
+}
+.alert{    min-height: 40px; margin-bottom:30px;}
+.form-manage {margin-top:20px;padding:20px;}
+.form-manage {
+    width: 75%;
+    margin: auto;
+}
+.form-manage .form-group {margin-bottom: 22px;}
+
+input, select, textarea { max-width: initial;}
+.field-validation-error{color:red !important; font-size: 12px;}
+.input-validation-error{border:1px solid red !important;}
+select.form-control:not([size]):not([multiple]){height:34px !important;}
+.form-control{font-size: 1.3rem !important;}
+.checkbox {
+    display: inline;
+    margin-left: 50px;
+}
+/**************create-owner*************/
+.create-owner {
+    width: 100%;
+}
+.create-owner .col-md-1, .create-owner .col-md-2, .create-owner.col-md-3 ,
+.create-owner .col-md-4, .create-owner .col-md-5, .create-owner.col-md-6 ,
+.create-owner .col-md-7, .create-owner .col-md-8, .create-owner.col-md-9,
+.create-owner .col-md-10, .create-owner .col-md-11, .create-owner.col-md-12{
+     padding-left: 3px; 
+     padding-right: 3px; 
+}
+/*.control-label {
+    text-align:center;
+}*/
+.create-owner .field-validation-error {
+    position: absolute; 
+}
+.red-star{color:crimson; font-size: 18px;font-weight: 900;}
+.create-owner .form-group {
+    padding-left: 20px;
+}
+.btn-capture {
+    margin: auto;
+    text-align: center;
+    padding-top: 70px;
+    margin-bottom:20px;
+}
+/**************end create-owner*************/
+    
+/*table.dataTable thead .sorting_asc {
+    background: url("http://cdn.datatables.net/1.10.0/images/sort_asc.png") no-repeat center left;
+}
+
+table.dataTable thead .sorting_desc {
+    background: url("http://cdn.datatables.net/1.10.0/images/sort_desc.png") no-repeat center left;
+}
+
+table.dataTable thead .sorting {
+    background: url("http://cdn.datatables.net/1.10.0/images/sort_both.png") no-repeat center left;
+}*/

@@ -1,0 +1,119 @@
+﻿@model SmartMvc.Core.Domain.Terminal
+
+@{
+    string actionType = (string)ViewData["ActionType"];
+}
+
+@if (@actionType == "Delete")
+{
+    <div class="alert alert-danger" role="alert">
+        <strong>@Resources.Site.Attention</strong> @Resources.Site.ConfirmDeleting
+    </div>
+}
+<div class="clear"></div>
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TermCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TermCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TermTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TermTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TermDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TermDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TermAddDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TermAddDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TermModifyDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TermModifyDate)
+        </dd>
+
+        @*<dt>
+            @Html.DisplayNameFor(model => model.TermUserId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TermUserId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TermModifyUserId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TermModifyUserId)
+        </dd>*@
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TermPriority)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TermPriority)
+        </dd>
+
+        @*<dt>
+            @Html.DisplayNameFor(model => model.TermIsDeleted)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TermIsDeleted)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TermIsPublished)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TermIsPublished)
+        </dd>*@
+
+    </dl>
+
+</div>
+<div>
+
+    @if (@actionType == "Delete")
+    {
+        using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <div class="form-actions no-color">
+                <input type="submit" value='@Resources.Site.Delete' class="btn btn-danger" />
+                @Html.ActionLink(Resources.Site.BackToList, "Index", null, new { @class = "btn btn-default" })
+            </div>
+        }
+    }
+    else
+    {
+        <p>
+            @Html.ActionLink(Resources.Site.Edit, "Edit", new { id = Model.TermId }, new { @class = "btn btn-info" })
+            @Html.ActionLink(Resources.Site.BackToList, "Index", null, new { @class = "btn btn-default" })
+        </p>
+    }
+</div>

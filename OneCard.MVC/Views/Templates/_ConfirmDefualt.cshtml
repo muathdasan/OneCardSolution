@@ -1,0 +1,18 @@
+﻿
+
+<div>
+    <div class="alert alert-info" role="alert">
+        @Resources.Site.ConfirmDefualt
+    </div>
+
+    <div>
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <div class="form-actions no-color">
+                <input type="submit" value='@Resources.Site.Confirm' class="btn btn-danger" />
+                @Html.ActionLink(Resources.Site.BackToList, "Index", null, new { @class = "btn btn-default" })
+            </div>
+        }
+    </div>
+</div>

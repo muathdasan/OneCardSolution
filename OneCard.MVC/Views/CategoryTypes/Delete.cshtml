@@ -1,0 +1,101 @@
+﻿@model SmartMvc.Core.Domain.CategoryType
+
+
+@{
+    ViewBag.Title = @Resources.Site.Delete/*"Delete"*/;
+    Layout = "";
+}
+
+@*<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>*@
+<div class="alert alert-danger" role="alert">
+    <strong>@Resources.Site.Attention</strong> @Resources.Site.ConfirmDeleting
+</div>
+<div class="clear"></div>
+<div>
+ 
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CtCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CtCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CtTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CtTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CtDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CtDescription)
+        </dd>
+
+        @*<dt>
+            @Html.DisplayNameFor(model => model.CtAddDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CtAddDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CtModifyDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CtModifyDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CtUserId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CtUserId)
+        </dd>*@
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CtPriority)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CtPriority)
+        </dd>
+
+        @*<dt>
+            @Html.DisplayNameFor(model => model.CtIsDeleted)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CtIsDeleted)
+        </dd>*@
+
+        @*<dt>
+            @Html.DisplayNameFor(model => model.CtIsPublished)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CtIsPublished)
+        </dd>*@
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value='@Resources.Site.Delete' class="btn btn-danger" /> 
+            @Html.ActionLink(Resources.Site.BackToList, "Index", null, new { @class = "btn btn-default" })
+        </div>
+    }
+</div>

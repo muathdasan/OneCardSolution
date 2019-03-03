@@ -1,0 +1,132 @@
+﻿@model IEnumerable<SmartMvc.Core.Domain.Terminal>
+@using OneCard.MVC.Helpers
+@{
+    ViewBag.Title = @Resources.Site.Terminal;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel-heading">
+            <h2>@Resources.Site.Terminals</h2>
+            <div class="create-btn">
+                @Html.ActionLink(@Resources.Site.AddTerminal, "Create", null, new { @class = "btn btn-info" })
+            </div>
+        </div>
+
+        <div class="panel-body">
+            @Html.Partial("~/Views/Shared/_MessageResult.cshtml", ViewData)
+            <div id="TableList">
+                <table class="table datatable">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Resources.Site.RowNo
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.TermCode)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.TermTitle)
+                            </th>
+                            @*<th>
+                                    @Html.DisplayNameFor(model => model.TermDescription)
+                                </th>*@
+                            <th>
+                                @Html.DisplayNameFor(model => model.TermAddDate)
+                            </th>
+                            @*<th>
+                                    @Html.DisplayNameFor(model => model.TermModifyDate)
+                                </th>*@
+                            @*<th>
+                                    @Html.DisplayNameFor(model => model.TermUserId)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.TermModifyUserId)
+                                </th>*@
+                            <th>
+                                @Html.DisplayNameFor(model => model.TermPriority)
+                            </th>
+                            @*<th>
+                                    @Html.DisplayNameFor(model => model.TermIsDeleted)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.TermIsPublished)
+                                </th>*@
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{ int rowNo = 0; }
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @(rowNo += 1)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.TermCode)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.TermTitle)
+                                </td>
+                                @*<td>
+                                        @Html.DisplayFor(modelItem => item.TermDescription)
+                                    </td>*@
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.TermAddDate)
+                                </td>
+                                @*<td>
+                                        @Html.DisplayFor(modelItem => item.TermModifyDate)
+                                    </td>*@
+                                @*<td>
+                                        @Html.DisplayFor(modelItem => item.TermUserId)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.TermModifyUserId)
+                                    </td>*@
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.TermPriority)
+                                </td>
+                                @*<td>
+                                        @Html.DisplayFor(modelItem => item.TermIsDeleted)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.TermIsPublished)
+                                    </td>*@
+                                <td>
+                                    @Html.ActionLink(@Resources.Site.Edit, "Edit", new { id = item.TermId }, new { @class = "btn btn-info  fa fa-edit" })
+                                    <a href="#" onclick="showPopup('@Url.Action("Delete", "Terminals",  new { id = item.TermId })', '@String.Format("{0}",item.TermTitle) ')"
+                                       title='@Resources.Site.Delete' class="btn btn-danger fa fa-trash-o">@Resources.Site.Delete</a>
+                                    <a href="#" onclick="showPopup('@Url.Action("Details", "Terminals",  new { id = item.TermId })', '@String.Format("{0}",item.TermTitle) ')"
+                                       title='@Resources.Site.Details' class="btn btn-default">@Resources.Site.Details</a>
+
+
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section scripts
+{
+    @if (CultureHelper.IsRtl)
+    {
+        <script>
+            var lang = 'ar';
+            initDatatable(lang);
+        </script>
+    }
+    else
+    {
+        <script>
+            var lang = 'en';
+            initDatatable(lang);
+        </script>
+    }
+}

@@ -1,0 +1,45 @@
+﻿@using OneCard.MVC.Helpers
+
+@if (ViewData != null)
+{
+
+
+    if (ViewData[MsgHelper.ModelInfo] != null)
+    {
+        <div class="alert alert-info" role="alert">
+            <strong> @*@Resources.Site.Success*@  </strong> @ViewData[MsgHelper.ModelInfo]
+        </div>
+    }
+
+
+    if (!ViewData.ModelState.IsValid)
+    {
+        if (ViewData.ModelState[MsgHelper.ModelError] != null)
+        {
+            foreach (var error in ViewData.ModelState[MsgHelper.ModelError].Errors)
+            {
+                <div class="alert alert-danger" role="alert">
+                    <strong>@Resources.Site.Error</strong> @error.ErrorMessage
+                </div>
+            }
+        }
+
+    }
+    else
+    {
+        if (ViewData[MsgHelper.ModelSuccess] != null)
+        {
+            <div class="alert alert-success" role="alert">
+                <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">×</span><span class="sr-only">@Resources.Site.Close</span></button>
+                <strong>@Resources.Site.Success</strong> @ViewData[MsgHelper.ModelSuccess]
+            </div>
+        }
+       
+
+
+    }
+}
+
+
+
+

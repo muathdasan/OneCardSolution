@@ -1,0 +1,90 @@
+﻿
+body {
+    padding-top: 0px;
+    font-size:14px;
+}
+.panel .panel-body {
+    direction: rtl;
+}
+.panel .panel-title {
+    direction: rtl;
+}
+.create-btn {
+    float: left;
+}
+.col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12 {
+    float: right;
+}
+.btn-default {
+    color: #333;
+    background-color: #fff;
+    border-color: #ccc;
+}
+.btn-default:hover {
+        color: #333;
+        background-color: #e6e6e6;
+        border-color: #adadad;
+}
+.table {
+    direction: rtl;
+    margin-bottom: 20px;
+}
+.navbar-brand{padding-top:15px;font-size: 16px;}
+.form-inline{display:block;}
+.form-inline .row{direction:rtl}
+.btn{font-size:14px;}
+.dataTables_info {
+    margin-top: 15px;
+}
+.pagination {
+    margin-top: 35px;
+}
+.dl-horizontal dt {
+    float: right;
+    margin-right: 50px;
+    text-align:right;
+}
+.dl-horizontal dd{
+    text-align: right;
+    margin-left: 0px;
+}
+.alert {
+    direction: rtl;
+}
+/*.dl-horizontal dd {
+    float: right;
+}*/
+.checkbox {
+    margin-right: 20px;
+    position: initial;
+}
+
+/**************create-owner*************/
+.create-owner .radio label, .create-owner .checkbox label {
+    padding-left: 0px;
+    padding-right: 20px;
+}
+.create-owner .form-group {
+    padding-right: 20px;
+}
+.datepicker{    direction: ltr;text-align: right;}
+.ui-datepicker-prev span,.ui-datepicker-next span {
+      font-size: 0px;
+}
+/**************end create-owner*************/
+@media (min-width: 768px) {
+    .navbar-nav {
+        display: block
+    }
+    .navbar > .container, .navbar > .container-fluid {
+        display: block
+    }
+    .navbar-nav > li {
+        direction: rtl;
+        float: right
+    }
+    .navbar-header {
+        direction: rtl;
+        float: right;
+    }
+}

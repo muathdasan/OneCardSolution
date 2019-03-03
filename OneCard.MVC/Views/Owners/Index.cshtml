@@ -1,0 +1,338 @@
+﻿@model IEnumerable<SmartMvc.Core.Domain.Owner>
+@using OneCard.MVC.Helpers
+@using SmartMvc.Core.Enums;
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel-heading">
+            <h2>@Resources.Site.Owners</h2>
+            <div class="create-btn">
+                @Html.ActionLink(@Resources.Site.AddOwner, "Create", null, new { @class = "btn btn-info" })
+            </div>
+        </div>
+        <div class="panel-body">
+            @Html.Partial("~/Views/Shared/_MessageResult.cshtml", ViewData)
+            <div id="TableList">
+                <table class="table datatable">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Resources.Site.RowNo
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.OwnerId)
+                            </th>
+                            <th>
+                                @Resources.Site.CategoryType
+                            </th>
+                            @*<th>
+                                @Resources.Site.Template
+                            </th>*@
+                            @*<th>
+                                @Html.DisplayNameFor(model => model.OwnerDescription)
+                            </th>*@
+                            @*<th>
+                                @Html.DisplayNameFor(model => model.OwnerAddress)
+                            </th>*@
+                            <th>
+                                @Html.DisplayNameFor(model => model.OwnerFirstName)
+                            </th>
+                            @*<th>
+                                @Html.DisplayNameFor(model => model.OwnerSecondName)
+                            </th>*@
+                            <th>
+                                @Html.DisplayNameFor(model => model.OwnerFamilyName)
+                            </th>
+                            @*<th>
+                                @Html.DisplayNameFor(model => model.OwnerFullNameEn)
+                            </th>*@
+                            @*<th>
+                                @Html.DisplayNameFor(model => model.OwnerEmail)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.OwnerPhone)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.OwnerMobile)
+                            </th>*@
+                            <th>
+                                @Html.DisplayNameFor(model => model.OwnerNationalNo)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.OwnerGender)
+                            </th>
+                            @*<th>
+                                @Html.DisplayNameFor(model => model.OwnerPlaceOfBirth)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.OwnerDateOfBirth)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.OwnerBloodType)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.OwnerPassportNo)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.OwnerPassportPlace)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.OwnerPassportEndDate)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.OwnerCollage)
+                            </th>*@
+                            <th>
+                                @Html.DisplayNameFor(model => model.OwnerNationality)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.OwnerStatus)
+                            </th>
+                            @*<th>
+                                @Html.DisplayNameFor(model => model.OwnerDocumentNo)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.OwnerDocumentDate)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.OwnerHafizaNo)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.OwnerHafizaDate)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.OwnerIqamaNo)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.OwnerIqamaPlace)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.OwnerIqamaStartDate)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.OwnerIqamaEndDate)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.OwnerImagePath)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.OwnerImageContentType)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.OwnerImageExtension)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.OwnerImageLength)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.OwnerAttachFile1)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.OwnerAttachFile2)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.OwnerAttachFile3)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.OwnerAddDate)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.OwnerModifyDate)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.OwnerUserId)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.OwnerModifyUserId)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.OwnerIsDeleted)
+                            </th>*@
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{ int rowNo = 0; }
+                        @foreach (var item in Model)
+                        {
+                        <tr>
+                            <td>
+                                @(rowNo += 1)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.OwnerId)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CategoryType.CtTitle)
+                            </td>
+                            @*<td>
+                                @Html.DisplayFor(modelItem => item.Template.TempTitle)
+                            </td>*@
+                            @*<td>
+                                @Html.DisplayFor(modelItem => item.OwnerDescription)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.OwnerAddress)
+                            </td>*@
+                            <td>
+                                @Html.DisplayFor(modelItem => item.OwnerFirstName)
+                            </td>
+                            @*<td>
+                                @Html.DisplayFor(modelItem => item.OwnerSecondName)
+                            </td>*@
+                            <td>
+                                @Html.DisplayFor(modelItem => item.OwnerFamilyName)
+                            </td>
+                            @*<td>
+                                @Html.DisplayFor(modelItem => item.OwnerFullNameEn)
+                            </td>*@
+                            @*<td>
+                                @Html.DisplayFor(modelItem => item.OwnerEmail)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.OwnerPhone)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.OwnerMobile)
+                            </td>*@
+                            <td>
+                                @Html.DisplayFor(modelItem => item.OwnerNationalNo)
+                            </td>
+                            <td>
+                                @DataAnnotationHelpers.GetDisplayValue((Gender)item.OwnerGender)
+                                @*@Enum.GetName(typeof(Gender), item.OwnerGender)*@
+                            </td>
+                            @*<td>
+                                @Html.DisplayFor(modelItem => item.OwnerPlaceOfBirth)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.OwnerDateOfBirth)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.OwnerBloodType)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.OwnerPassportNo)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.OwnerPassportPlace)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.OwnerPassportEndDate)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.OwnerCollage)
+                            </td>*@
+                            <td>
+                                @DataAnnotationHelpers.GetDisplayValue((Nationality)item.OwnerNationality)
+                            </td>
+                            <td>
+                                @if (item.OwnerStatus == true)
+                                {
+                                    @Resources.Site.Active
+                                }
+                                else
+                                { @Resources.Site.NotActive}
+                                @*@Html.DisplayFor(modelItem => item.OwnerStatus)*@
+                            </td>
+                            @*<td>
+                                @Html.DisplayFor(modelItem => item.OwnerDocumentNo)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.OwnerDocumentDate)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.OwnerHafizaNo)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.OwnerHafizaDate)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.OwnerIqamaNo)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.OwnerIqamaPlace)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.OwnerIqamaStartDate)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.OwnerIqamaEndDate)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.OwnerImagePath)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.OwnerImageContentType)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.OwnerImageExtension)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.OwnerImageLength)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.OwnerAttachFile1)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.OwnerAttachFile2)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.OwnerAttachFile3)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.OwnerAddDate)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.OwnerModifyDate)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.OwnerUserId)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.OwnerModifyUserId)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.OwnerIsDeleted)
+                            </td>*@
+                            <td>
+                                @Html.ActionLink(@Resources.Site.Edit, "Edit", new { id = item.OwnerId }, new { @class = "btn btn-info  fa fa-edit" })
+                                <a href="#" onclick="showPopup('@Url.Action("Delete", "Owners",  new { id = item.OwnerId })', '@String.Format("{0} {1}",item.OwnerFirstName,item.OwnerFamilyName) ')"
+                                   title='@Resources.Site.Delete' class="btn btn-danger fa fa-trash-o">@Resources.Site.Delete</a>
+                                <a href="#" onclick="showPopup('@Url.Action("Details", "Owners",  new { id = item.OwnerId })', '@String.Format("{0} {1}",item.OwnerFirstName,item.OwnerFamilyName) ')"
+                                   title='@Resources.Site.Details' class="btn btn-default">@Resources.Site.Details</a>
+
+
+                            </td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section scripts
+{
+    @if (CultureHelper.IsRtl)
+    {
+        <script>
+            var lang = 'ar';
+            initDatatable(lang);
+        </script>
+    }
+    else
+    {
+        <script>
+            var lang = 'en';
+            initDatatable(lang);
+        </script>
+    }
+}

@@ -1,0 +1,124 @@
+﻿@model SmartMvc.Core.Domain.CategoryType
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="col-md-12">
+    <div class="form-manage">
+
+        @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "CreateForm" }))
+        {
+            @Html.AntiForgeryToken()
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        @*@if (actionType == "Edit")
+                            {
+                                <span class="fa fa-edit"></span> @String.Format("{0} : {1}", Resource.EditEnterprise, Resource.EntNameAr)
+                                <i> : </i> @Html.DisplayFor(model => model.EntNameAr)
+                            }
+                            else
+                            {*@
+                        <span class="fa fa-plus"></span> @String.Format("{0} {1}", Resources.Site.Create, Resources.Site.CategoryType)
+                        @* }*@
+
+                    </h3>
+
+                </div>
+                <div class="panel-body">
+                    <div class="">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        @Html.Partial("~/Views/Shared/_MessageResult.cshtml", ViewData)
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.CtCode, htmlAttributes: new { @class = "control-label" })
+
+                            @Html.EditorFor(model => model.CtCode, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.CtCode, "", new { @class = "text-danger" })
+
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.CtTitle, htmlAttributes: new { @class = "control-label" })
+
+                            @Html.EditorFor(model => model.CtTitle, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.CtTitle, "", new { @class = "text-danger" })
+
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.CtDescription, htmlAttributes: new { @class = "control-label " })
+
+                            @Html.EditorFor(model => model.CtDescription, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.CtDescription, "", new { @class = "text-danger" })
+
+                        </div>
+
+                        @*<div class="form-group">
+            @Html.LabelFor(model => model.CtAddDate, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CtAddDate, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CtAddDate, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+
+                        @*<div class="form-group">
+            @Html.LabelFor(model => model.CtModifyDate, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CtModifyDate, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CtModifyDate, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+
+                        @*<div class="form-group">
+            @Html.LabelFor(model => model.CtUserId, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CtUserId, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CtUserId, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.CtPriority, htmlAttributes: new { @class = "control-label" })
+
+                            @Html.EditorFor(model => model.CtPriority, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.CtPriority, "", new { @class = "text-danger" })
+
+                        </div>
+
+                        @*<div class="form-group">
+            @Html.LabelFor(model => model.CtIsDeleted, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.CtIsDeleted)
+                    @Html.ValidationMessageFor(model => model.CtIsDeleted, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>*@
+
+                        @*<div class="form-group">
+            @Html.LabelFor(model => model.CtIsPublished, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.CtIsPublished)
+                    @Html.ValidationMessageFor(model => model.CtIsPublished, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>*@
+
+                        <div class="form-group">
+                            @*<div class="col-md-offset-2 col-md-10">*@
+                            <input type="submit" value='@Resources.Site.Save' class="btn btn-info" />
+                            @Html.ActionLink(Resources.Site.BackToList, "Index", null, new { @class = "btn btn-default" })
+                            @*</div>*@
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+}

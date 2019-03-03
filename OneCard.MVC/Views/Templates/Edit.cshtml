@@ -1,0 +1,149 @@
+﻿@model SmartMvc.Core.Domain.Template
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-md-12">
+    <div class="form-manage">
+        @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "CreateForm" }))
+        {
+            @Html.AntiForgeryToken()
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                    <span class="fa fa-edit"></span> @String.Format("{0}", Resources.Site.Edit)
+                    :  @Html.DisplayFor(model => model.TempTitle)
+                </h3>
+            </div>
+            <div class="panel-body">
+                <div class="">
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    @Html.Partial("~/Views/Shared/_MessageResult.cshtml", ViewData)
+                    @Html.HiddenFor(model => model.TempId)
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.TempCode, htmlAttributes: new { @class = "control-label" })
+
+                        @Html.EditorFor(model => model.TempCode, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.TempCode, "", new { @class = "text-danger" })
+
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.TempTitle, htmlAttributes: new { @class = "control-label" })
+
+                        @Html.EditorFor(model => model.TempTitle, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.TempTitle, "", new { @class = "text-danger" })
+
+                    </div>
+
+                    @*<div class="form-group">
+            @Html.LabelFor(model => model.TempPath, htmlAttributes: new { @class = "control-label" })
+
+                @Html.EditorFor(model => model.TempPath, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TempPath, "", new { @class = "text-danger" })
+
+        </div>*@
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.TempDescription, htmlAttributes: new { @class = "control-label" })
+
+                        @Html.EditorFor(model => model.TempDescription, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.TempDescription, "", new { @class = "text-danger" })
+
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.CategoryTypeId, Resources.Site.CategoryType, htmlAttributes: new { @class = "control-label" })
+
+                        @Html.DropDownList("CategoryTypeId", null, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.CategoryTypeId, "", new { @class = "text-danger" })
+
+                    </div>
+
+                    @*<div class="form-group">
+            @Html.LabelFor(model => model.TempIsDefualt, htmlAttributes: new { @class = "control-label" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.TempIsDefualt)
+                    @Html.ValidationMessageFor(model => model.TempIsDefualt, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>*@
+
+                    @*<div class="form-group">
+            @Html.LabelFor(model => model.TempAddDate, htmlAttributes: new { @class = "control-label" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TempAddDate, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TempAddDate, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TempModifyDate, htmlAttributes: new { @class = "control-label" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TempModifyDate, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TempModifyDate, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TempUserId, htmlAttributes: new { @class = "control-label" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TempUserId, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TempUserId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TempModifyUserId, htmlAttributes: new { @class = "control-label" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TempModifyUserId, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TempModifyUserId, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.TempPriority, htmlAttributes: new { @class = "control-label" })
+
+                        @Html.EditorFor(model => model.TempPriority, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.TempPriority, "", new { @class = "text-danger" })
+
+                    </div>
+
+                    @*<div class="form-group">
+            @Html.LabelFor(model => model.TempIsDeleted, htmlAttributes: new { @class = "control-label" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.TempIsDeleted)
+                    @Html.ValidationMessageFor(model => model.TempIsDeleted, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TempIsPublished, htmlAttributes: new { @class = "control-label" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.TempIsPublished)
+                    @Html.ValidationMessageFor(model => model.TempIsPublished, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>*@
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value='@Resources.Site.Save' class="btn btn-info" />
+                            @Html.ActionLink(Resources.Site.BackToList, "Index", null, new { @class = "btn btn-default" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+            }
+        </div>
+        </div>
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+}

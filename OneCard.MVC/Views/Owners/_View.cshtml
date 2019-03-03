@@ -1,0 +1,284 @@
+﻿@model SmartMvc.Core.Domain.Owner
+@using OneCard.MVC.Helpers
+@using SmartMvc.Core.Enums;
+
+@{
+    string actionType = (string)ViewData["ActionType"];
+}
+
+@if (@actionType == "Delete")
+{
+    <div class="alert alert-danger" role="alert">
+        <strong>@Resources.Site.Attention</strong> @Resources.Site.ConfirmDeleting
+    </div>
+}
+<div class="clear"></div>
+
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.OwnerId)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.OwnerId)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.OwnerFirstName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.OwnerFirstName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.OwnerSecondName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.OwnerSecondName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.OwnerFamilyName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.OwnerFamilyName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OwnerEmail)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.OwnerEmail)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.OwnerMobile)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.OwnerMobile)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.OwnerNationalNo)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.OwnerNationalNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OwnerGender)
+        </dt>
+        <dd>
+            @*@Html.DisplayFor(model => model.OwnerGender)*@
+            @DataAnnotationHelpers.GetDisplayValue((Gender)Model.OwnerGender)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.OwnerNationality)
+        </dt>
+        <dd>
+            @*@Html.DisplayFor(model => model.OwnerNationality)*@
+            @DataAnnotationHelpers.GetDisplayValue((Nationality)Model.OwnerNationality)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.OwnerCollage)
+        </dt>
+        <dd>
+            @if (Model.OwnerCollage != null)
+            {
+                @DataAnnotationHelpers.GetDisplayValue((Collage)Model.OwnerCollage)
+            }
+            else
+            { @Resources.Site.Unknown}
+            @*@Html.DisplayFor(model => model.OwnerCollage)*@
+        </dd>
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OwnerPlaceOfBirth)
+        </dt>
+        <dd>
+            @*@Html.DisplayFor(model => model.OwnerPlaceOfBirth)*@
+            @if (Model.OwnerPlaceOfBirth != null)
+            {
+                @DataAnnotationHelpers.GetDisplayValue((PlaceOfBirth)Model.OwnerPlaceOfBirth)
+            }
+            else
+            { @Resources.Site.Unknown}
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.OwnerDateOfBirth)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.OwnerDateOfBirth)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.OwnerBloodType)
+        </dt>
+        <dd>
+            @*@Html.DisplayFor(model => model.OwnerBloodType)*@
+            @if (Model.OwnerBloodType != null)
+            {
+                @DataAnnotationHelpers.GetDisplayValue((BloodType)Model.OwnerBloodType)
+            }
+            else
+            { @Resources.Site.Unknown}
+        </dd>
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OwnerPassportNo)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.OwnerPassportNo)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.OwnerPassportPlace)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.OwnerPassportPlace)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.OwnerPassportEndDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.OwnerPassportEndDate)
+        </dd>
+
+
+        <dt>
+            @Resources.Site.CategoryType
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CategoryType.CtTitle)
+        </dd>
+        <dt>
+            @Resources.Site.Template
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Template.TempTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OwnerDescription)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.OwnerDescription)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.OwnerStatus)
+        </dt>
+        <dd>
+            @if (Model.OwnerStatus == true)
+            {
+                @Resources.Site.Active
+            }
+            else
+            { @Resources.Site.NotActive}
+            @*@Html.DisplayFor(model => model.OwnerStatus)*@
+        </dd>
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OwnerImagePath)
+        </dt>
+
+        <dd>
+            @if (Model.OwnerImagePath != null)
+            {
+                <img src="~/images/@Html.DisplayFor(model => model.OwnerImagePath)" width="200" />
+            }
+            else
+            { @Resources.Site.Unknown}
+
+            @*@Html.DisplayFor(model => model.OwnerImagePath)*@
+        </dd>
+
+        @*<dt>
+            @Html.DisplayNameFor(model => model.OwnerImageContentType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OwnerImageContentType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OwnerImageExtension)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OwnerImageExtension)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OwnerImageLength)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OwnerImageLength)
+        </dd>*@
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OwnerAttachFile1)
+        </dt>
+
+        <dd>
+            @if (Model.OwnerAttachFile1 != null)
+            {
+                <a href="~/Files/@Html.DisplayFor(model => model.OwnerAttachFile1)" download>
+                    @Resources.Site.Download
+                </a>
+            }
+            else
+            { @Resources.Site.Unknown}
+            @*@Html.DisplayFor(model => model.OwnerAttachFile1)*@
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OwnerAttachFile2)
+        </dt>
+
+        <dd>
+            @if (Model.OwnerAttachFile2 != null)
+            {
+                <a href="~/Files/@Html.DisplayFor(model => model.OwnerAttachFile2)" download>
+                    @Resources.Site.Download
+                </a>
+            }
+            else
+            { @Resources.Site.Unknown}
+            @*@Html.DisplayFor(model => model.OwnerAttachFile2)*@
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OwnerAttachFile3)
+        </dt>
+
+        <dd>
+            @if (Model.OwnerAttachFile3 != null)
+            {
+                <a href="~/Files/@Html.DisplayFor(model => model.OwnerAttachFile3)" download>
+                    @Resources.Site.Download
+                </a>
+            }
+            else
+            { @Resources.Site.Unknown}
+            @*@Html.DisplayFor(model => model.OwnerAttachFile3)*@
+        </dd>
+    </dl>
+</div>
+<div>
+
+    @if (@actionType == "Delete")
+    {
+        using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <div class="form-actions no-color">
+                <input type="submit" value='@Resources.Site.Delete' class="btn btn-danger" />
+                @Html.ActionLink(Resources.Site.BackToList, "Index", null, new { @class = "btn btn-default" })
+            </div>
+        }
+    }
+    else
+    {
+        <p>
+            @Html.ActionLink(Resources.Site.Edit, "Edit", new { id = Model.OwnerId }, new { @class = "btn btn-info" })
+            @Html.ActionLink(Resources.Site.BackToList, "Index", null, new { @class = "btn btn-default" })
+        </p>
+    }
+</div>

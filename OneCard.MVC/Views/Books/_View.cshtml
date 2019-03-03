@@ -1,0 +1,140 @@
+﻿@model SmartMvc.Core.Domain.Book
+@using SmartMvc.Core.Enums;
+@using OneCard.MVC.Helpers
+
+@{
+    string actionType = (string)ViewData["ActionType"];
+}
+
+@if (@actionType == "Delete")
+{
+    <div class="alert alert-danger" role="alert">
+        <strong>@Resources.Site.Attention</strong> @Resources.Site.ConfirmDeleting
+    </div>
+}
+<div class="clear"></div>
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.BookCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BookCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BookTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BookTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BookPrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BookPrice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BookStatus)
+        </dt>
+
+        <dd>
+            @DataAnnotationHelpers.GetDisplayValue((BookStatus)Model.BookStatus)
+
+            @*@Enum.GetName(typeof(BookStatus),  Model.BookStatus)*@
+            @*@Html.DisplayFor(model => model.BookStatus)*@
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BookAuthor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BookAuthor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BookYear)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BookYear)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BookQuantity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BookQuantity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BookAddDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BookAddDate)
+        </dd>
+
+        @*<dt>
+                @Html.DisplayNameFor(model => model.BookModifyDate)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.BookModifyDate)
+            </dd>*@
+
+        @*<dt>
+                @Html.DisplayNameFor(model => model.BookUserId)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.BookUserId)
+            </dd>*@
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BookPriority)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BookPriority)
+        </dd>
+
+        @*<dt>
+                @Html.DisplayNameFor(model => model.BookIsDeleted)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.BookIsDeleted)
+            </dd>*@
+
+    </dl>
+</div>
+<div>
+
+    @if (@actionType == "Delete")
+    {
+        using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <div class="form-actions no-color">
+                <input type="submit" value='@Resources.Site.Delete' class="btn btn-danger" />
+                @Html.ActionLink(Resources.Site.BackToList, "Index", null, new { @class = "btn btn-default" })
+            </div>
+        }
+    }
+    else
+    {
+        <p>
+            @Html.ActionLink(Resources.Site.Edit, "Edit", new { id = Model.BookId }, new { @class = "btn btn-info" })
+            @Html.ActionLink(Resources.Site.BackToList, "Index", null, new { @class = "btn btn-default" })
+        </p>
+    }
+</div>
+

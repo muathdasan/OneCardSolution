@@ -1,0 +1,147 @@
+﻿@model SmartMvc.Core.Domain.Template
+
+@{
+    string actionType = (string)ViewData["ActionType"];
+}
+
+@if (@actionType == "Delete")
+{
+    <div class="alert alert-danger" role="alert">
+        <strong>@Resources.Site.Attention</strong> @Resources.Site.ConfirmDeleting
+    </div>
+}
+
+<div class="clear"></div>
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            @*@Html.DisplayNameFor(model => model.CategoryType.CtCode)*@
+            @Resources.Site.CategoryType
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CategoryType.CtTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TempCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TempCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TempTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TempTitle)
+        </dd>
+
+        @* <dt>
+           @Html.DisplayNameFor(model => model.TempPath)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TempPath)
+        </dd>*@
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TempDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TempDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TempIsDefualt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TempIsDefualt)
+        </dd>
+
+        @*<dt>
+            @Html.DisplayNameFor(model => model.TempAddDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TempAddDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TempModifyDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TempModifyDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TempUserId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TempUserId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TempModifyUserId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TempModifyUserId)
+        </dd>*@
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TempPriority)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TempPriority)
+        </dd>
+
+        @*<dt>
+            @Html.DisplayNameFor(model => model.TempIsDeleted)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TempIsDeleted)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TempIsPublished)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TempIsPublished)
+        </dd>*@
+
+    </dl>
+</div>
+<div>
+
+    @if (@actionType == "Delete")
+    {
+        if (!Model.TempIsDefualt)
+        {
+            using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                <div class="form-actions no-color">
+                    <input type="submit" value='@Resources.Site.Delete' class="btn btn-danger" />
+                    @Html.ActionLink(Resources.Site.BackToList, "Index", null, new { @class = "btn btn-default" })
+                </div>
+            }
+        }
+    }
+    else
+    {
+        <p>
+            @Html.ActionLink(Resources.Site.Edit, "Edit", new { id = Model.TempId }, new { @class = "btn btn-info" })
+            @Html.ActionLink(Resources.Site.BackToList, "Index", null, new { @class = "btn btn-default" })
+        </p>
+    }
+</div>

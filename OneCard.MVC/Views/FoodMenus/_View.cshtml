@@ -1,0 +1,126 @@
+﻿@model SmartMvc.Core.Domain.FoodMenu
+
+@{
+    string actionType = (string)ViewData["ActionType"];
+}
+
+@if (@actionType == "Delete")
+{
+    <div class="alert alert-danger" role="alert">
+        <strong>@Resources.Site.Attention</strong> @Resources.Site.ConfirmDeleting
+    </div>
+}
+    <div class="clear"></div>
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FMenuCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FMenuCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FMenuTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FMenuTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FMenuDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FMenuDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FMenuPrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FMenuPrice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FMenuAddDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FMenuAddDate)
+        </dd>
+
+        @*<dt>
+            @Html.DisplayNameFor(model => model.FMenuModifyDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FMenuModifyDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FMenuUserId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FMenuUserId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FMenuModifyUserId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FMenuModifyUserId)
+        </dd>*@
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FMenuPriority)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FMenuPriority)
+        </dd>
+
+        @*<dt>
+            @Html.DisplayNameFor(model => model.FMenuIsDeleted)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FMenuIsDeleted)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FMenuIsPublished)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FMenuIsPublished)
+        </dd>*@
+
+    </dl>
+</div>
+<div>
+
+    @if (@actionType == "Delete")
+    {
+        using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <div class="form-actions no-color">
+                <input type="submit" value='@Resources.Site.Delete' class="btn btn-danger" />
+                @Html.ActionLink(Resources.Site.BackToList, "Index", null, new { @class = "btn btn-default" })
+            </div>
+        }
+    }
+    else
+    {
+        <p>
+            @Html.ActionLink(Resources.Site.Edit, "Edit", new { id = Model.FMenuId }, new { @class = "btn btn-info" })
+            @Html.ActionLink(Resources.Site.BackToList, "Index", null, new { @class = "btn btn-default" })
+        </p>
+    }
+</div>
